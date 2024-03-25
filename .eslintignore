@@ -1,0 +1,19 @@
+# Ignore specific directories
+node_modules/
+dist/
+build/
+
+# Ignore specific file patterns
+*.min.js
+
+# Ignore all JavaScript files in the 'scripts' directory
+# scripts/**/*.js
+
+# Ignore all derived documentation files
+public/
+
+# Ignore specific files
+scripts/indexdb.js
+scripts/page.js
+scripts/pgbc.js
+scripts/users.js
