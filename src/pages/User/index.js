@@ -108,8 +108,8 @@ const Users = () => {
               style={{
                 borderWidth: 15,
                 borderRadius: 15,
-                borderColor: "#f0eefe",
-                border: "30px solid #f0eefe",
+                borderColor: "#ebeefd",
+                border: "30px solid #ebeefd",
                 marginLeft: 50,
                 display: "flex",
                 alignItems: "center",
@@ -136,8 +136,8 @@ const Users = () => {
               style={{
                 borderWidth: 15,
                 borderRadius: 15,
-                borderColor: "#f0eefe",
-                border: "30px solid #f0eefe",
+                borderColor: "#e8faed",
+                border: "30px solid #e8faed",
                 marginLeft: 50,
                 marginRight: 50,
                 display: "flex",
@@ -169,8 +169,8 @@ const Users = () => {
               style={{
                 borderWidth: 15,
                 borderRadius: 15,
-                borderColor: "#f0eefe",
-                border: "30px solid #f0eefe",
+                borderColor: "#fdeeee",
+                border: "30px solid #fdeeee",
                 marginLeft: 50,
                 marginRight: 50,
                 display: "flex",
@@ -198,8 +198,8 @@ const Users = () => {
               style={{
                 borderWidth: 15,
                 borderRadius: 15,
-                borderColor: "#f0eefe",
-                border: "30px solid #f0eefe",
+                borderColor: "#e6f5fb",
+                border: "30px solid #e6f5fb",
                 marginLeft: 50,
                 marginRight: 50,
                 display: "flex",

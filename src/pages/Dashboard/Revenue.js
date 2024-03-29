@@ -21,7 +21,7 @@ const Revenue = () => {
     },
     {
       month: 'Apr',
-      value: 155,
+      value: 130,
     },
     {
       month: 'May',
@@ -62,10 +62,7 @@ const Revenue = () => {
     data,
     xField: 'month',
     yField: 'value',
-    point: {
-      shapeField: 'circle',
-      sizeField: 4,
-    },
+    shapeField: 'smooth',
     interaction: {
       tooltip: {
         marker: false,

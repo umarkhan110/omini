@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Badge, Button, Col, Input, Row } from "antd";
+import { Button, Col, Input, Row } from "antd";
 import { Header } from "antd/es/layout/layout";
 import BrandLogo from "../assets/images/logo-light.png";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 import { themecolor } from "../config.js";
 import { Search } from "lucide-react";
-import profileImages from "../assets/images/user.svg";
+// import profileImages from "../assets/images/user.svg";
 // import usecustomStyles from "../Common/customStyles";
 import { MenuUnfoldOutlined } from "@ant-design/icons";
 
@@ -54,12 +54,12 @@ const HeaderContainer = styled.ul`
   }
 `;
 
-const StyleHeaderSearchBar = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+// const StyleHeaderSearchBar = styled.div`
+//   position: relative;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// `;
 
 // const StyleFlagDropdown = styled.div`
 //   min-width: 145px;
@@ -153,11 +153,8 @@ const HeaderLayout = () => {
               </Button>
             </Col>
           )}
-          <Col span={5} lg={5}>
-            <StyleHeaderSearchBar>
-              <Search size={15} />
-              <Input placeholder="Search" bordered={false} />
-            </StyleHeaderSearchBar>
+          <Col span={5} lg={7}>
+              <Input prefix={ <Search size={15} color={"#545454"}/>} placeholder="Search" style={{ borderRadius:"50px"}} />
           </Col>
           <Col span={6} lg={8} className="ant-ml-auto">
             <HeaderContainer className="ant-topbar-head list-unstyled">
@@ -167,7 +164,7 @@ const HeaderLayout = () => {
                   content={profileContentPopover}
                   // trigger={["click"]}
                 > */}
-                  <Badge dot offset={[-3, 5]}>
+                  {/* <Badge dot offset={[-3, 5]}>
                     <Link>
                       <img
                         src={profileImages}
@@ -176,7 +173,7 @@ const HeaderLayout = () => {
                         style={{ borderRadius: "50%" }}
                       ></img>
                     </Link>
-                  </Badge>
+                  </Badge> */}
                 {/* </Popover> */}
               </li>
             </HeaderContainer>

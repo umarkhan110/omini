@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, Col, Row } from "antd";
-import CustomTable from "../../Common/CustomTable";
+// import CustomTable from "../../Common/CustomTable";
 import CreateBlockChainModal from "./createBlockChainModal";
 import CreateUserDefinedTypes from "./createUserDefinedTypes";
 import AddBlockData from "./addBlockData";
+import BlockChainTable from "../../Common/Table";
 
 const Users = () => {
   document.title = "Blockchain Management" + process.env.REACT_APP_PAGE_TITLE;
@@ -79,16 +80,17 @@ const hideAddBQLDataModal = () => {
             <h1 style={{ fontWeight: "bold" }}>Blockchain Management</h1>
           </Col>
           <Col span={12} align="end">
-          <Button key="add" type="primary" style={{ marginRight: "8px" }}  onClick={showCreateUDTModal}>
+          <Button key="add" type="primary" style={{ marginRight: "8px", borderRadius:"8px"  }}  onClick={showCreateUDTModal}>
               Add UDT
             </Button>
-            <Button key="add" type="primary" style={{ marginRight: "8px" }}  onClick={showAddBQLDataModal}>
+            <Button key="add" style={{ marginRight: "8px", background:"transparent", color:"#039CD8", border:"1px solid #039CD8", borderRadius:"8px"  }}  onClick={showAddBQLDataModal}>
               Add Block
             </Button>
             <Button
               key="add"
               type="primary"
               onClick={showCreateBlockChainModal}
+              style={{borderRadius:"8px" }}
             >
               Add New Blockchain
             </Button>
@@ -98,7 +100,7 @@ const hideAddBQLDataModal = () => {
           <Col span={17}>
             <Card>
               {blockchainList && (
-                <CustomTable blockchainList={blockchainList} />
+                <BlockChainTable blockchainList={blockchainList} />
               )}
             </Card>
           </Col>

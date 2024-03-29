@@ -136,7 +136,18 @@ const Widget = () => {
     const username = localStorage.getItem("username");
     const password = localStorage.getItem("password");
   
+    // const ddl = `SELECT DISTINCT COUNT(ai_1) as count, ai_1 FROM .seednode_pgbclog WHERE length(ai_1) > 1 group by ai_1;`
     try {
+//        // Fetch the list of blockchains
+//        const blockListResponse1 = await fetch(`https://dashboard.postgresbc.info/cgi-bin/pgbc_api/search_block_data?username=${username}&password=${password}&ddl=${ddl}`, {
+//         method: "POST",
+//         headers: {
+//           Authorization: "Basic " + localStorage.getItem("api_key"),
+//           "Content-Type": "application/json",
+//         },
+//       });
+//       const blockListData1 = await blockListResponse1.text();
+// console.log(blockListData1)
       // Fetch the list of blockchains
       const blockListResponse = await fetch(`https://dashboard.postgresbc.info/cgi-bin/pgbc_api/get_block_list?username=${username}&password=${password}`, {
         method: "POST",
@@ -145,6 +156,7 @@ const Widget = () => {
           "Content-Type": "application/json",
         },
       });
+
   
       const blockListData = await blockListResponse.json();
       const blockchains = blockListData.blockchains;
@@ -200,14 +212,13 @@ console.log(encryptedKeysCount)
               <img src={BlockChain} sizes="52" />
               <p
                 style={{
-                  textTransform: "uppercase",
                   fontSize: "16px",
                   color: "#141414",
                   marginTop: "10%",
                   fontWeight: 500,
                 }}
               >
-                BlockChain Count
+                Blockchain count
               </p>
               <h4 style={{ fontSize: "28px", fontWeight: 600 }}>
                 <CountUp
@@ -234,14 +245,13 @@ console.log(encryptedKeysCount)
               <img src={Blocks} sizes="52" />
               <p
                 style={{
-                  textTransform: "uppercase",
                   fontSize: "16px",
                   color: "#141414",
                   marginTop: "10%",
                   fontWeight: 500,
                 }}
               >
-                Total Blocks
+                Total blocks
               </p>
               <h4 style={{ fontSize: "28px", fontWeight: 600 }}>
                 <CountUp
@@ -268,7 +278,6 @@ console.log(encryptedKeysCount)
               <img src={Storage} sizes="52" />
               <p
                 style={{
-                  textTransform: "uppercase",
                   fontSize: "16px",
                   color: "#141414",
                   marginTop: "10%",
@@ -302,14 +311,13 @@ console.log(encryptedKeysCount)
               <img src={Users} sizes="52" />
               <p
                 style={{
-                  textTransform: "uppercase",
                   fontSize: "16px",
                   color: "#141414",
                   marginTop: "10%",
                   fontWeight: 500,
                 }}
               >
-                User Count
+                User counts
               </p>
               <h4 style={{ fontSize: "28px", fontWeight: 600 }}>
                 <CountUp
@@ -336,7 +344,6 @@ console.log(encryptedKeysCount)
               <img src={Encrypted} sizes="52" />
               <p
                 style={{
-                  textTransform: "uppercase",
                   fontSize: "16px",
                   color: "#141414",
                   marginTop: "10%",
