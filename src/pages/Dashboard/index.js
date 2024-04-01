@@ -5,7 +5,10 @@ import { Col, Row } from "antd";
 // import Breadcrumb from '../../Common/Breadcrumb';
 import usecustomStyles from "../../Common/customStyles";
 import Widget from "./Widget";
-import Revenue from "./Revenue";
+import {Revenue}  from "./Revenue";
+import {Revenue2}  from "./Revenue2";
+import {Revenue3}  from "./Revenue3";
+import {Revenue4}  from "./Revenue4";
 
 const 
 /**
@@ -34,6 +37,9 @@ const Dashboard = () => {
               <Row gutter={[14, 14]} style={{ marginTop: customStyles.margin }}>
                 <Widget />
                 <Revenue />
+                <Revenue2 />
+                <Revenue3 />
+                <Revenue4 />
               </Row>
             </div>
           </Col>

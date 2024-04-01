@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, Col, Row } from "antd";
-// import CustomTable from "../../Common/CustomTable";
+import BlockChainTable from "../../Common/Table";
 import CreateBlockChainModal from "./createBlockChainModal";
 import CreateUserDefinedTypes from "./createUserDefinedTypes";
 import AddBlockData from "./addBlockData";
-import BlockChainTable from "../../Common/Table";
 
 const Users = () => {
   document.title = "Blockchain Management" + process.env.REACT_APP_PAGE_TITLE;
@@ -106,10 +105,9 @@ const hideAddBQLDataModal = () => {
           </Col>
           <Col span={7}>
             <Card>
-              <h3 style={{ fontWeight: "bold" }}>Schema</h3>
+              <h3 style={{ fontWeight: "bold" }}>OmniIndex PostgresBC</h3>
               <p style={{ color: "#16161D" }}>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
+                Select a blockchain. To view the schema, click on the actions eyeball!
               </p>
             </Card>
           </Col>

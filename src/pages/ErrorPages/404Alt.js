@@ -88,7 +88,7 @@ const FourzerofourAlt = () => {
                       </div>
                       <div>
                         <p style={{ marginBottom: "0px" }}>
-                          &copy; {new Date().getFullYear()}Omni Index
+                          &copy; {new Date().getFullYear()}OmniIndex
                         </p>
                       </div>
                     </div>

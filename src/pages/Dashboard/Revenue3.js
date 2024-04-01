@@ -5,7 +5,7 @@ import { Column } from '@ant-design/plots';
 
 const customStyles = usecustomStyles();
 
-const Revenue = () => {
+const Revenue3 = () => {
   const [chartData, setChartData] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -23,7 +23,7 @@ const Revenue = () => {
         if (!apiKey)
         console.error("API Key Invalid")
 
-          const searchDDL = 'SELECT%20COUNT(ai_1)%20AS%20count_ai,%20ai_1%20FROM%20.seednode_syslog%20GROUP%20BY%20ai_1%20ORDER%20BY%20count_ai%20DESC';
+          const searchDDL = 'SELECT%20COUNT(ai_3)%20AS%20count_ai,%20ai_3%20FROM%20.seednode_syslog%20GROUP%20BY%20ai_3%20ORDER%20BY%20count_ai%20DESC';
           const endpoint = `https://dashboard.postgresbc.info/cgi-bin/pgbc_api/search_block_data?username=${managerUsername}&password=${managerPassword}&ddl=${searchDDL}`;
   
         const response = await fetch(endpoint, {
@@ -54,13 +54,13 @@ const Revenue = () => {
   
         let filteredResults = [];
         for (let i = 0; i < data.results.length; i++) {
-          if (data.results[i].ai_1 !== "") {
+          if (data.results[i].ai_3 !== "") {
             filteredResults.push(data.results[i]);
           }
         } 
 
         const dataForChart = filteredResults.map(item => ({
-          type: item.ai_1,
+          type: item.ai_3,
           values: parseInt(item.count_ai, 10), 
         }));
     
@@ -79,7 +79,7 @@ const Revenue = () => {
       <Col xs={24} xl={24}>
         <Card>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-            <h4  style={{fontSize:'21px', fontWeight:'600', marginBottom:'10px'}}>Boudica analytics AI_1</h4>
+            <h4  style={{fontSize:'21px', fontWeight:'600', marginBottom:'10px'}}>Boudica analytics AI_3</h4>
             <div>
             </div>
           </div>
@@ -87,7 +87,7 @@ const Revenue = () => {
           </div>
           <div style={{ marginTop: customStyles.margin || '20px' }}> 
           <div className="w-100">
-              <div id="revenue-chart" dir="ltr" style={{ height: '293px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #f0f0f0', borderRadius: '2px' }}>
+              <div id="revenue3-chart" dir="ltr" style={{ height: '293px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #f0f0f0', borderRadius: '2px' }}>
                 {errorMessage ? (
                   <div style={{ textAlign: 'center', whiteSpace: 'pre-wrap' }}>
                     <strong>Cannot render graph, JSON error:</strong>
@@ -107,4 +107,4 @@ const Revenue = () => {
 }
 
 
-export {Revenue}
+export {Revenue3}

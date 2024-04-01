@@ -27,7 +27,7 @@ const FooterLayout = () => {
         <StyleFooter id='antFooterLayout'>
             <Row align="middle">
                 <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', whiteSpace:'nowrap', zIndex:'9' }}>
-                    <p style={{marginRight:'16px', marginBottom:'0'}}>Omni Index.</p>
+                    <p style={{marginRight:'16px', marginBottom:'0'}}>OmniIndex.</p>
                 </div>
             </Row>
         </StyleFooter>

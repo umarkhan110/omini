@@ -85,7 +85,7 @@ const HeaderContainer = styled.ul`
 //     >
 //       <li>
 //         <Text type="secondary" style={{ fontSize: "13px" }}>
-//           Welcome to Omni Index!
+//           Welcome to OmniIndex!
 //         </Text>
 //       </li>
 //       <li>
@@ -153,7 +153,7 @@ const HeaderLayout = () => {
               </Button>
             </Col>
           )}
-          <Col span={5} lg={7}>
+           <Col span={5} lg={7}>
               <Input prefix={ <Search size={15} color={"#545454"}/>} placeholder="Search" style={{ borderRadius:"50px"}} />
           </Col>
           <Col span={6} lg={8} className="ant-ml-auto">

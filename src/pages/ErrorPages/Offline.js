@@ -46,7 +46,7 @@ const Offline = () => {
                                                 <p>It brings together your tasks, projects, timelines, files, and more</p>
                                             </div>
                                             <div>
-                                                <p style={{ marginBottom: "0px" }}>&copy; {new Date().getFullYear()}Omni Index</p>
+                                                <p style={{ marginBottom: "0px" }}>&copy; {new Date().getFullYear()}OmniIndex</p>
                                             </div>
                                         </div>
                                     </Card>

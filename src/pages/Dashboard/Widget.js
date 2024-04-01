@@ -16,7 +16,7 @@ const Widget = () => {
   const [blocklistCount, setBlocklistCount] = useState(0);
   const [userCount, setUserCount] = useState(0);
   const [blocks, setBlocks] = useState(0);
-  const [storage, setStorage] = useState(0);
+  const [blockSize, setBlockSize] = useState("0 GB");
   const [encryptedKeysCount, setEncryptedKeysCount] = useState(0);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Widget = () => {
     const password = localStorage.getItem("password");
     getBlockCount(username, password);
     getUserCount(username, password);
-    getStorage(username, password);
+    getBlockSize(username, password);
     countEncryptedKeys(username, password);
   }, []);
 
@@ -52,6 +52,30 @@ const Widget = () => {
       console.error("Error during login:", error);
     }
   };
+
+  async function getBlockSize(){
+    try {
+      const username = localStorage.getItem("username");
+      const password = localStorage.getItem("password");
+
+      const blockSizeResponse = await fetch(
+        `https://dashboard.postgresbc.info/cgi-bin/pgbc_api/get_block_size?username=${username}&password=${password}`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: "Basic " + localStorage.getItem("api_key"),
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const blockSizeText = await blockSizeResponse.text();
+      setBlockSize(blockSizeText);
+      
+  } 
+  catch (error) {
+    console.error("Error during login:", error);
+  }
+}
 
   async function getBlockCount() {
     try {
@@ -106,48 +130,11 @@ const Widget = () => {
     }
   }
 
-  async function getStorage() {
-    try {
-      const username = localStorage.getItem("username");
-      const password = localStorage.getItem("password");
-
-      const storageResponse = await fetch(
-        `https://dashboard.postgresbc.info/cgi-bin/pgbc_api/get_block_size?username=${username}&password=${password}`,
-        {
-          method: "POST",
-          headers: {
-            Authorization: "Basic " + localStorage.getItem("api_key"),
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      const storageData = await storageResponse.text();
-      const storage = storageData.replace('MB', '')
-      if (storageData) {
-        setStorage(parseInt(storage));
-      }
-    } catch (error) {
-      console.error("Error during login:", error);
-    }
-  }
-  
   async function countEncryptedKeys() {
     const username = localStorage.getItem("username");
     const password = localStorage.getItem("password");
   
-    // const ddl = `SELECT DISTINCT COUNT(ai_1) as count, ai_1 FROM .seednode_pgbclog WHERE length(ai_1) > 1 group by ai_1;`
     try {
-//        // Fetch the list of blockchains
-//        const blockListResponse1 = await fetch(`https://dashboard.postgresbc.info/cgi-bin/pgbc_api/search_block_data?username=${username}&password=${password}&ddl=${ddl}`, {
-//         method: "POST",
-//         headers: {
-//           Authorization: "Basic " + localStorage.getItem("api_key"),
-//           "Content-Type": "application/json",
-//         },
-//       });
-//       const blockListData1 = await blockListResponse1.text();
-// console.log(blockListData1)
       // Fetch the list of blockchains
       const blockListResponse = await fetch(`https://dashboard.postgresbc.info/cgi-bin/pgbc_api/get_block_list?username=${username}&password=${password}`, {
         method: "POST",
@@ -156,7 +143,6 @@ const Widget = () => {
           "Content-Type": "application/json",
         },
       });
-
   
       const blockListData = await blockListResponse.json();
       const blockchains = blockListData.blockchains;
@@ -188,9 +174,9 @@ const Widget = () => {
       setEncryptedKeysCount(totalEncryptedKeyCount);
     } catch (error) {
       console.error("Error during login:", error);
+    }
   }
-}
-console.log(encryptedKeysCount)
+  
   return (
     <React.Fragment>
       <Row
@@ -287,13 +273,7 @@ console.log(encryptedKeysCount)
                 Storage used
               </p>
               <h4 style={{ fontSize: "28px", fontWeight: 600 }}>
-                <CountUp
-                  start={0}
-                  end={storage}
-                  duration={1}
-                  decimal="."
-                  decimals={0}
-                /> MB
+                {blockSize} {}
               </h4>
             </div>
           </div>
@@ -354,11 +334,11 @@ console.log(encryptedKeysCount)
               </p>
               <h4 style={{ fontSize: "28px", fontWeight: 600 }}>
                 <CountUp
-                  start={0}
-                  end={encryptedKeysCount}
-                  duration={1}
-                  decimal="."
-                  decimals={0}
+                start={0}
+                end={encryptedKeysCount} 
+                duration={1}
+                decimal="."
+                decimals={0}
                 />
               </h4>
             </div>
