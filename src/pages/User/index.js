@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, Col, Row } from "antd";
-import usecustomStyles from "../../Common/customStyles";
+// import usecustomStyles from "../../Common/customStyles";
 import addUser from "../../assets/images/add_user.svg";
 import modifyUser from "../../assets/images/modify_user.svg";
 import suspendUser from "../../assets/images/suspend_user.svg";
@@ -12,7 +12,7 @@ import DeleteUserModal from "./deleteUserModal";
 import SuspendUserModal from "./suspendUserModel";
 import ShareAccessModal from "./shareAccessModal";
 
-const customStyles = usecustomStyles();
+// const customStyles = usecustomStyles();
 
 const Users = () => {
   document.title = "Users" + process.env.REACT_APP_PAGE_TITLE;
@@ -20,10 +20,12 @@ const Users = () => {
   const [isAddUserModalVisible, setIsAddUserModalVisible] = useState(false);
   const [isModifyUserModalVisible, setIsModifyUserModalVisible] =
     useState(false);
-  const [isSuspendUserModalVisible, setIsSuspendUserModalVisible] = useState(false);
-  const [isShareAccessModalVisible, setIsShareAccessModalVisible] = useState(false);
-  const [isDeleteUserModalVisible, setIsDeleteUserModalVisible] = useState(false);
-
+  const [isSuspendUserModalVisible, setIsSuspendUserModalVisible] =
+    useState(false);
+  const [isShareAccessModalVisible, setIsShareAccessModalVisible] =
+    useState(false);
+  const [isDeleteUserModalVisible, setIsDeleteUserModalVisible] =
+    useState(false);
 
   const showAddUserModal = () => {
     setIsAddUserModalVisible(true);
@@ -64,168 +66,163 @@ const Users = () => {
   const hideShareAccessModal = () => {
     setIsShareAccessModalVisible(false);
   };
-  
+
   return (
     <div>
-      <Col gutter={[24, 24]}>
-        <Card style={{ margin: 50 }}>
-          <h1 style={{ fontWeight: "bold" }}>User Actions</h1>
-          <Row gutter={[24, 24]} style={{ marginTop: customStyles.margin }}>
-            <Col
-              xs={24}
-              sm={12}
-              lg={8}
-              xl={6}
+      <Card
+        style={{
+          margin: "0px",
+          "@media (min-width: 768px)": { margin: "50px" },
+        }}
+      >
+        <h1 style={{ fontWeight: "bold" }}>User Actions</h1>
+        <Row style={{ gap: "30px", width: "100%" }}>
+          <Col
+            xs={24}
+            sm={11}
+            lg={11}
+            xl={6}
+            style={{
+              borderWidth: 15,
+              borderRadius: 15,
+              borderColor: "#f0eefe",
+              border: "30px solid #f0eefe",
+              // marginLeft: 50,
+              // marginRight: 50,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+            }}
+            onClick={showAddUserModal}
+          >
+            <div
               style={{
-                borderWidth: 15,
-                borderRadius: 15,
-                borderColor: "#f0eefe",
-                border: "30px solid #f0eefe",
-                marginLeft: 50,
-                marginRight: 50,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
+                textAlign: "center",
+                padding: "15%",
               }}
-              onClick={showAddUserModal}
             >
-              <div
-                style={{
-                  textAlign: "center",
-                  padding: "15%",
-                }}
-              >
-                <img src={addUser} width={50} style={{ marginBottom: 20 }} />
-                <h1>Add User</h1>
-              </div>
-            </Col>
-            <Col
-              xs={24}
-              sm={12}
-              lg={8}
-              xl={6}
+              <img src={addUser} width={50} style={{ marginBottom: 20 }} />
+              <h1>Add User</h1>
+            </div>
+          </Col>
+          <Col
+            xs={24}
+            sm={11}
+            lg={11}
+            xl={6}
+            style={{
+              borderWidth: 15,
+              borderRadius: 15,
+              borderColor: "#ebeefd",
+              border: "30px solid #ebeefd",
+              // marginLeft: 50,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+            }}
+            onClick={showModifyUserModal}
+          >
+            <div
               style={{
-                borderWidth: 15,
-                borderRadius: 15,
-                borderColor: "#ebeefd",
-                border: "30px solid #ebeefd",
-                marginLeft: 50,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
+                textAlign: "center",
+                padding: "15%",
               }}
-              onClick={showModifyUserModal}
             >
-              <div
-                style={{
-                  textAlign: "center",
-                  padding: "15%",
-                }}
-              >
-                <img src={modifyUser} width={50} style={{ marginBottom: 20 }} />
-                <h1>Modify User</h1>
-              </div>
-            </Col>
-            <Col
-              xs={24}
-              sm={12}
-              lg={8}
-              xl={6}
+              <img src={modifyUser} width={50} style={{ marginBottom: 20 }} />
+              <h1>Modify User</h1>
+            </div>
+          </Col>
+          <Col
+            xs={24}
+            sm={11}
+            lg={11}
+            xl={6}
+            style={{
+              borderWidth: 15,
+              borderRadius: 15,
+              borderColor: "#e8faed",
+              border: "30px solid #e8faed",
+              // marginLeft: 50,
+              // marginRight: 50,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+            }}
+            onClick={showSuspendUserModal}
+          >
+            <div
               style={{
-                borderWidth: 15,
-                borderRadius: 15,
-                borderColor: "#e8faed",
-                border: "30px solid #e8faed",
-                marginLeft: 50,
-                marginRight: 50,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
+                textAlign: "center",
+                padding: "15%",
               }}
-              onClick={showSuspendUserModal}
             >
-              <div
-                style={{
-                  textAlign: "center",
-                  padding: "15%",
-                }}
-              >
-                <img
-                  src={suspendUser}
-                  width={50}
-                  style={{ marginBottom: 20 }}
-                />
-                <h1>Suspend User</h1>
-              </div>
-            </Col>
-            <Col
-              xs={24}
-              sm={12}
-              lg={8}
-              xl={6}
+              <img src={suspendUser} width={50} style={{ marginBottom: 20 }} />
+              <h1>Suspend User</h1>
+            </div>
+          </Col>
+          <Col
+            xs={24}
+            sm={11}
+            lg={11}
+            xl={6}
+            style={{
+              borderWidth: 15,
+              borderRadius: 15,
+              borderColor: "#fdeeee",
+              border: "30px solid #fdeeee",
+              // marginLeft: 50,
+              // marginRight: 50,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+            }}
+            onClick={showDeleteUserModal}
+          >
+            <div
               style={{
-                borderWidth: 15,
-                borderRadius: 15,
-                borderColor: "#fdeeee",
-                border: "30px solid #fdeeee",
-                marginLeft: 50,
-                marginRight: 50,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
+                textAlign: "center",
+                padding: "15%",
               }}
-              onClick={showDeleteUserModal}
             >
-              <div
-                style={{
-                  textAlign: "center",
-                  padding: "15%",
-                }}
-              >
-                <img src={deleteUser} width={50} style={{ marginBottom: 20 }} />
-                <h1>Delete User</h1>
-              </div>
-            </Col>
-            <Col
-              xs={24}
-              sm={12}
-              lg={8}
-              xl={6}
+              <img src={deleteUser} width={50} style={{ marginBottom: 20 }} />
+              <h1>Delete User</h1>
+            </div>
+          </Col>
+          <Col
+            xs={24}
+            sm={11}
+            lg={11}
+            xl={6}
+            style={{
+              borderWidth: 15,
+              borderRadius: 15,
+              borderColor: "#e6f5fb",
+              border: "30px solid #e6f5fb",
+              // marginLeft: 50,
+              // marginRight: 50,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+            }}
+            onClick={showShareAccessModal}
+          >
+            <div
               style={{
-                borderWidth: 15,
-                borderRadius: 15,
-                borderColor: "#e6f5fb",
-                border: "30px solid #e6f5fb",
-                marginLeft: 50,
-                marginRight: 50,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
+                textAlign: "center",
+                padding: "15%",
               }}
-              onClick={showShareAccessModal}
             >
-              <div
-                style={{
-                  textAlign: "center",
-                  padding: "15%",
-                }}
-              >
-                <img
-                  src={shareAccess}
-                  width={50}
-                  style={{ marginBottom: 20 }}
-                />
-                <h1>Share Access</h1>
-              </div>
-            </Col>
-          </Row>
-        </Card>
-      </Col>
+              <img src={shareAccess} width={50} style={{ marginBottom: 20 }} />
+              <h1>Share Access</h1>
+            </div>
+          </Col>
+        </Row>
+      </Card>
       <AddUserModal
         visible={isAddUserModalVisible}
         onCancel={hideAddUserModal}

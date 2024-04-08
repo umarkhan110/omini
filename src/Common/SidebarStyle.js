@@ -51,44 +51,6 @@ const StyleSider = styled(Sider)`
   z-index:1000;
   border-right: 1px solid ${({ theme }) => theme.components.Menu.menuBorderColor};
   background: ${({ theme }) => theme.components.Menu.itemBg};
-
-  .demo-logo {
-    .brand-sm-logo {
-      display: none;
-    }
-  }
-
-  .ant-menu-sub {
-    .ant-menu-item {
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-  }
-
-  .ant-menu-inline {
-    border-inline-end: none !important;
-  }
-
-  &.ant-layout-sider-collapsed {
-    .demo-logo {
-      .brand-dark-logo {
-          display: none;
-      }
-
-      .brand-sm-logo {
-          display: inline-block;
-      }
-    }
-
-    .ant-menu-item-group-title {
-      text-align: center;
-    }
-
-  }
-
-  .ant-menu-inline-collapsed {
-    width: 100px;
-  }
 `;
 
 

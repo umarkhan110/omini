@@ -28,24 +28,18 @@ const Dashboard = () => {
   document.title = "Dashboard" + process.env.REACT_APP_PAGE_TITLE;
 
   return (
-    <>
-      <div>
-        <Col gutter={[24, 24]} style={{ margin: "40px 10px" }}>
-          <Col xs={24} xxl={24}>
+      <Row>
+          <Col xs={24}>
             <h1 style={{ fontWeight: "bold" }}>Dashboard</h1>
-            <div>
-              <Row gutter={[14, 14]} style={{ marginTop: customStyles.margin }}>
+              <Row  style={{ marginTop: customStyles.margin }}>
                 <Widget />
                 <Revenue />
                 <Revenue2 />
                 <Revenue3 />
                 <Revenue4 />
               </Row>
-            </div>
           </Col>
-        </Col>
-      </div>
-    </>
+      </Row>
   );
 };
 

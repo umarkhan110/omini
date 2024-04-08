@@ -75,10 +75,10 @@ const hideAddBQLDataModal = () => {
     <div>
       <Col gutter={[24, 24]} style={{ margin: "40px 10px" }}>
         <Row>
-          <Col span={12}>
+          <Col  xs={24} xl={12}>
             <h1 style={{ fontWeight: "bold" }}>Blockchain Management</h1>
           </Col>
-          <Col span={12} align="end">
+          <Col align="end" xs={24} sm={24} xl={12}>
           <Button key="add" type="primary" style={{ marginRight: "8px", borderRadius:"8px"  }}  onClick={showCreateUDTModal}>
               Add UDT
             </Button>
@@ -96,14 +96,14 @@ const hideAddBQLDataModal = () => {
           </Col>
         </Row>
         <Row>
-          <Col span={17}>
+          <Col xs={24} lg={17}>
             <Card>
               {blockchainList && (
                 <BlockChainTable blockchainList={blockchainList} />
               )}
             </Card>
           </Col>
-          <Col span={7}>
+          <Col xs={24} lg={7}>
             <Card>
               <h3 style={{ fontWeight: "bold" }}>OmniIndex PostgresBC</h3>
               <p style={{ color: "#16161D" }}>

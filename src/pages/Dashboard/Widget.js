@@ -1,4 +1,4 @@
-import { Card, Row } from "antd";
+import { Card, Row, Col } from "antd";
 import React, { useEffect, useState } from "react";
 import usecustomStyles from "../../Common/customStyles";
 import CountUp from "react-countup";
@@ -178,21 +178,19 @@ const Widget = () => {
   }
   
   return (
-    <React.Fragment>
       <Row
         xs={24}
-        xl={8}
         gutter={[14, 14]}
-        style={{ marginTop: customStyles.margin }}
+        style={{ marginTop: customStyles.margin, width:"100%" }}
       >
+         <Col xs={24} sm={12} md={8} lg={8} xl={6}>
         <Card
           style={{
             marginBottom: customStyles.margin,
-            marginRight: 14,
+            // marginRight: 14,
             borderRadius: 20,
-            minWidth: "215px",
           }}
-        >
+          >
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <div>
               <img src={BlockChain} sizes="52" />
@@ -218,12 +216,14 @@ const Widget = () => {
             </div>
           </div>
         </Card>
+        </Col>
+         <Col xs={24} sm={12} md={8} lg={8} xl={6}>
         <Card
           style={{
             marginBottom: customStyles.margin,
-            marginRight: 14,
+            // marginRight: 14,
             borderRadius: 20,
-            minWidth: "215px",
+            // minWidth: "215px",
           }}
         >
           <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -250,13 +250,14 @@ const Widget = () => {
               </h4>
             </div>
           </div>
-        </Card>
+        </Card></Col>
+         <Col xs={24} sm={12} md={8} lg={6} xl={6}>
         <Card
           style={{
             marginBottom: customStyles.margin,
-            marginRight: 14,
+            // marginRight: 14,
             borderRadius: 20,
-            minWidth: "215px",
+            // minWidth: "215px",
           }}
         >
           <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -277,13 +278,14 @@ const Widget = () => {
               </h4>
             </div>
           </div>
-        </Card>
+        </Card></Col>
+         <Col xs={24} sm={12} md={8} lg={6} xl={6}>
         <Card
           style={{
             marginBottom: customStyles.margin,
-            marginRight: 14,
+            // marginRight: 14,
             borderRadius: 20,
-            minWidth: "215px",
+            // minWidth: "215px",
           }}
         >
           <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -310,13 +312,14 @@ const Widget = () => {
               </h4>
             </div>
           </div>
-        </Card>
+        </Card></Col>
+         <Col xs={24} sm={12} md={8} lg={6} xl={6}>
         <Card
           style={{
             marginBottom: customStyles.margin,
-            marginRight: 14,
+            // marginRight: 14,
             borderRadius: 20,
-            minWidth: "215px",
+            // minWidth: "215px",
           }}
         >
           <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -343,9 +346,8 @@ const Widget = () => {
               </h4>
             </div>
           </div>
-        </Card>
+        </Card></Col>
       </Row>
-    </React.Fragment>
   );
 };
 

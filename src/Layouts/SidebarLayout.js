@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import withRouter from "../Common/withRouter";
 import OmniLogo from "../assets/images/logo.svg";
-import OmniLogo2 from "../assets/images/logo2.png";
+// import OmniLogo2 from "../assets/images/logo2.png";
 import DashboardIcon from "../Common/Icons/DashboardIcon.js";
 import UsersIcon from "../Common/Icons/UserIcon.js";
 import BlockchainIcon from "../Common/Icons/BlockchainIcon.js";
 import MlAiIcon from "../Common/Icons/MLIcon.js";
 import { Menu, Typography } from "antd";
-import { ChevronLeft, ChevronRight, FileOutput } from "lucide-react";
-import { themecolor } from "../config.js";
+import {  FileOutput, } from "lucide-react";
 import {
   StyleSimpleBar,
-  StyledCollapsedButton,
   StyleBrandLogo,
   StyleSider,
+  // StyledCollapsedButton
 } from "../Common/SidebarStyle";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+// import { themecolor } from "../config.js";
 const { Text } = Typography;
+
 const SidebarLayout = () => {
   function getItem(label, key, icon, children, type) {
     return {
@@ -25,7 +26,7 @@ const SidebarLayout = () => {
       children,
       label,
       type,
-      style: { marginBottom: "7%" }, // Add marginBottom style here
+      style: { marginBottom: "7%" },
     };
   }
   const location = useLocation();
@@ -34,7 +35,6 @@ const SidebarLayout = () => {
     const currentPath = location.pathname.replace("/", "");
     return currentPath || "dashboard";
   });
-  // console.log(activatedItem)
   const items = [
     getItem(
       null,
@@ -70,26 +70,9 @@ const SidebarLayout = () => {
     ),
   ];
 
-  const [collapsed, setCollapsed] = useState(false);
-
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-    const antHeaderMain = document.getElementById("antHeaderMain");
-    if (antHeaderMain) {
-      antHeaderMain.style.left = !collapsed ? "100px" : "260px";
-    }
-    const antLayoutContent = document.getElementById("antLayoutContent");
-    if (antLayoutContent) {
-      antLayoutContent.style.marginLeft = !collapsed ? "100px" : "260px";
-    }
-    const antFooterLayout = document.getElementById("antFooterLayout");
-    if (antFooterLayout) {
-      antFooterLayout.style.marginLeft = !collapsed ? "100px" : "260px";
-    }
-  };
-
   const toggleActivation = (key) => {
     setActivatedItem(key);
+    // handleToggleSidebar(window.innerWidth > 768? true :false)
   };
 
   const handleUserLogout = ()=>{
@@ -97,15 +80,18 @@ const SidebarLayout = () => {
     localStorage.removeItem("manager_password");
     navigate("/login-team-manger")
   }
+  
   return (
     <React.Fragment>
       <StyleSider
         id="sidebar-layout"
-        width={themecolor.components.Menu.verticalSidebarWidth}
-        collapsed={collapsed}
-        collapsedWidth="100"
-        breakpoint="lg"
-        style={{ padding: collapsed === false ? 10 : 0 }}
+        width={"260px"}
+        // width={themecolor.components.Menu.verticalSidebarWidth}
+        // collapsed={collapsed}
+        // collapsedWidth="100"
+        // breakpoint="lg"
+        // style={{ padding: collapsed === false ? 10 : 0 }}
+        // collapsed={true} 
       >
         <StyleBrandLogo className="demo-logo ant-mx-auto">
           <img
@@ -115,20 +101,20 @@ const SidebarLayout = () => {
             style={{ lineHeight: "24px" }}
             className="brand-dark-logo ant-mx-auto"
           />
-          <img
+          {/* <img
             alt="Brand sm logo"
             src={OmniLogo2}
             width={100}
             style={{ lineHeight: "24px" }}
             className="brand-sm-logo ant-mx-auto"
-          />
-          <StyledCollapsedButton
+          /> */}
+          {/* <StyledCollapsedButton
             themecolor={themecolor}
             type="link"
-            onClick={toggleCollapsed}
+            onClick={handleToggleSidebar}
           >
-            {collapsed ? <ChevronRight /> : <ChevronLeft />}
-          </StyledCollapsedButton>
+            X
+          </StyledCollapsedButton> */}
         </StyleBrandLogo>
         <div>
           <StyleSimpleBar>
@@ -137,7 +123,7 @@ const SidebarLayout = () => {
               mode="inline"
               theme="light"
               items={items}
-              collapsedWidth="100"
+              // collapsedWidth="100"
               defaultSelectedKeys={["1"]}
               onClick={({ key }) => toggleActivation(key)}
               style={{ marginTop: "10%" }}
