@@ -69,7 +69,7 @@ const AddBlockData = ({ visible, onCancel, blockchainList }) => {
         </div>
         <Form form={form} layout="vertical">
           <Row gutter={[16, 16]}>
-            <Col span={12}>
+            <Col xs={24} lg={12}>
               <Form.Item
                 name={`blockchainName`}
                 label="BlockChain"
@@ -89,7 +89,7 @@ const AddBlockData = ({ visible, onCancel, blockchainList }) => {
             </Col>
           </Row>
           <Row gutter={[16, 16]}>
-            <Col span={12}>
+            <Col xs={24} lg={12}>
               <Form.Item
                 name="username"
                 label="Username"
@@ -98,7 +98,7 @@ const AddBlockData = ({ visible, onCancel, blockchainList }) => {
                 <Input placeholder="Username"/>
               </Form.Item>
             </Col>
-            <Col span={12}>
+            <Col xs={24} lg={12}>
               <Form.Item
                 name="userPassword"
                 label="User Password"

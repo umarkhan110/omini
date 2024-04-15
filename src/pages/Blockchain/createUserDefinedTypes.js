@@ -71,7 +71,7 @@ const CreateUserDefinedTypes = ({ visible, onCancel }) => {
         </div>
         <Form form={form} layout="vertical">
           <Row gutter={[16, 16]}>
-            <Col span={12}>
+            <Col xs={24} lg={12}>
               <Form.Item
                 name="username"
                 label="User Name"
@@ -82,7 +82,7 @@ const CreateUserDefinedTypes = ({ visible, onCancel }) => {
                 <Input placeholder="User Name"/>
               </Form.Item>
             </Col>
-            <Col span={12}>
+            <Col xs={24} lg={12}>
               <Form.Item
                 name="password"
                 label="User Password"
@@ -95,7 +95,7 @@ const CreateUserDefinedTypes = ({ visible, onCancel }) => {
             </Col>
           </Row>
           <Row gutter={[16, 16]}>
-            <Col span={12}>
+            <Col xs={24} lg={12}>
               <Form.Item
                 name="udt"
                 label="UDT Name"
@@ -104,7 +104,7 @@ const CreateUserDefinedTypes = ({ visible, onCancel }) => {
                 <Input placeholder="UDT Name"/>
               </Form.Item>
             </Col>
-            <Col span={12}>
+            <Col xs={24} lg={12}>
               <Form.Item
                 name="columnName"
                 label="Column Name"
@@ -115,7 +115,7 @@ const CreateUserDefinedTypes = ({ visible, onCancel }) => {
             </Col>
           </Row>
           <Row>
-            <Col span={12}>
+            <Col xs={24} lg={12}>
               <Form.Item
                 name="dataType"
                 label="Data Type"

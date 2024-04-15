@@ -11,8 +11,8 @@ import Blockchain from "../pages/Blockchain";
 import SigninWithManager from "../pages/Authentication/loginWithManger";
 
 const authProtectedRoutes = [
-  { path: "/dashboard", component: <Dashboard /> },
-  { path: "/", element: <Navigate to="/dashboard" /> },
+  { path: "/", component: <Dashboard /> },
+  // { path: "/", element: <Navigate to="/dashboard" /> },
   { path: "*", element: <Navigate to="/dashboard" /> },
   { path: "/users", component: <Users /> },
   { path: "/blockchain", component: <Blockchain /> },

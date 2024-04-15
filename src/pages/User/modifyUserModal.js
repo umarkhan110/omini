@@ -73,7 +73,7 @@ const ModifyUserModal = ({ visible, onCancel }) => {
         </div>
       <Form form={form} layout="vertical">
         <Row gutter={[16, 16]}>
-          <Col span={12}>
+          <Col xs={24} lg={12}>
             <Form.Item
               name="managerUsername"
               label="Manager Username"
@@ -84,7 +84,7 @@ const ModifyUserModal = ({ visible, onCancel }) => {
               <Input />
             </Form.Item>
           </Col>
-          <Col span={12}>
+          <Col xs={24} lg={12}>
             <Form.Item
               name="managerPassword"
               label="Manager Password"
@@ -97,7 +97,7 @@ const ModifyUserModal = ({ visible, onCancel }) => {
           </Col>
         </Row>
         <Row gutter={[16, 16]}>
-          <Col span={12}>
+          <Col xs={24} lg={12}>
             <Form.Item
               name="username"
               label="Username"
@@ -106,7 +106,7 @@ const ModifyUserModal = ({ visible, onCancel }) => {
               <Input />
             </Form.Item>
           </Col>
-          <Col span={12}>
+          <Col xs={24} lg={12}>
             <Form.Item
               name="userOldPassword"
               label="User Old Password"
@@ -119,7 +119,7 @@ const ModifyUserModal = ({ visible, onCancel }) => {
           </Col>
         </Row>
         <Row gutter={[16, 16]}>
-          <Col span={12}>
+          <Col xs={24} lg={12}>
             <Form.Item
               name="userNewPassword"
               label="User New Password"
@@ -130,7 +130,7 @@ const ModifyUserModal = ({ visible, onCancel }) => {
               <Input.Password />
             </Form.Item>
           </Col>
-          <Col span={12}>
+          <Col xs={24} lg={12}>
           <Form.Item
                 name="isManager"
                 label="Is-Manager"

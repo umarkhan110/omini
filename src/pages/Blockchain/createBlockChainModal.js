@@ -98,7 +98,7 @@ const CreateBlockChainModal = ({ visible, onCancel }) => {
         </div>
         <Form form={form} layout="vertical">
           <Row gutter={[16, 16]}>
-            <Col span={12}>
+            <Col xs={24} lg={12}>
               <Form.Item
                 name="blockchainName"
                 label="Create Blockchain"
@@ -112,7 +112,7 @@ const CreateBlockChainModal = ({ visible, onCancel }) => {
           </Row>
           {columns.map((column, index) => (
           <Row gutter={[16, 16]} key={index}>
-            <Col span={12}>
+            <Col xs={24} lg={12}>
               <Form.Item
                    name={`columnName${index}`}
                 label="Column Name"
@@ -121,7 +121,7 @@ const CreateBlockChainModal = ({ visible, onCancel }) => {
                 <Input placeholder="Column Name"/>
               </Form.Item>
             </Col>
-            <Col span={12}>
+            <Col xs={24} lg={12}>
               <Form.Item
                 name={`encryptedValue${index}`}
                 label="Encrypt"

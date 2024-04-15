@@ -10,11 +10,11 @@ import {  FileOutput, } from "lucide-react";
 import {
   StyleSimpleBar,
   StyleBrandLogo,
-  StyledCollapsedButton,
+  // StyledCollapsedButton,
 //   MobileStyleSider,
 } from "../Common/SidebarStyle";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { themecolor } from "../config.js";
+// import { themecolor } from "../config.js";
 const { Text } = Typography;
 
 const MobileSidebar = ({handleToggleSidebar}) => {
@@ -42,7 +42,7 @@ const MobileSidebar = ({handleToggleSidebar}) => {
       null,
       [
         getItem(
-          <Link to="/dashboard">Dashboard</Link>,
+          <Link to="/">Dashboard</Link>,
           "dashboard",
           <DashboardIcon
             color={activatedItem == "dashboard" ? "#ffff" : "#828282"}
@@ -61,7 +61,7 @@ const MobileSidebar = ({handleToggleSidebar}) => {
           />
         ),
         getItem(
-          <Link to="/dashboard">ML/AI</Link>,
+          <Link to="/">ML/AI</Link>,
           "ml",
           <MlAiIcon color={activatedItem == "ml" ? "#ffff" : "#828282"} />
         ),
@@ -101,13 +101,13 @@ const MobileSidebar = ({handleToggleSidebar}) => {
             style={{ lineHeight: "24px" }}
             className="brand-sm-logo ant-mx-auto"
           /> */}
-          <StyledCollapsedButton
+          {/* <StyledCollapsedButton
             themecolor={themecolor}
             type="link"
             onClick={handleToggleSidebar}
           >
             X
-          </StyledCollapsedButton>
+          </StyledCollapsedButton> */}
         </StyleBrandLogo>
         <div>
           <StyleSimpleBar>

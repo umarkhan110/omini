@@ -4,17 +4,13 @@ import EyeIcon from "../assets/images/eye.svg";
 import { Modal, Row, Col } from "antd";
 import { Space, Table } from "antd";
 
-const TableContainer = styled.div`
-  margin: 20px;
-`;
-
 const ViewButton = styled.img`
   width: 20px;
   height: 20px;
   cursor: pointer;
 `;
 const BlockChainTable = ({ blockchainList }) => {
-//   const [currentPage, setCurrentPage] = useState(1);
+  //   const [currentPage, setCurrentPage] = useState(1);
   const [blockchainName, setBlockchainName] = useState();
   const [isViewBlockChainModalVisible, setIsViewBlockChainModalVisible] =
     useState(false);
@@ -92,7 +88,9 @@ const BlockChainTable = ({ blockchainList }) => {
 
   return (
     <>
-      <TableContainer><Table columns={columns} dataSource={data} /></TableContainer>
+      <div style={{ overflowX: "auto", whiteSpace: "nowrap" }}>
+        <Table columns={columns} dataSource={data} />
+      </div>
       {isViewBlockChainModalVisible && (
         <ViewBlockChainModal
           visible={isViewBlockChainModalVisible}

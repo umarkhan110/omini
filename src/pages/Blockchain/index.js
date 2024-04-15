@@ -72,8 +72,7 @@ const hideAddBQLDataModal = () => {
   };
   
   return (
-    <div>
-      <Col gutter={[24, 24]} style={{ margin: "40px 10px" }}>
+    <div style={{ marginTop: "40px" }}>
         <Row>
           <Col  xs={24} xl={12}>
             <h1 style={{ fontWeight: "bold" }}>Blockchain Management</h1>
@@ -112,7 +111,7 @@ const hideAddBQLDataModal = () => {
             </Card>
           </Col>
         </Row>
-      </Col>
+
       <CreateBlockChainModal
         visible={isCreateBlockChainModalVisible}
         onCancel={hideCreateBlockChainModal}

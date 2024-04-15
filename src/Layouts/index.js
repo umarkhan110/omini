@@ -37,20 +37,6 @@ const LayoutComponents = ({ children }) => {
     setIsSidebarVisible(prevState => !prevState);
   };
 
-  // useEffect(() => {
-  //   updateWindowDimensions();
-  //   window.addEventListener("resize", updateWindowDimensions);
-
-  //   return () => {
-  //     window.removeEventListener("resize", updateWindowDimensions);
-  //   };
-  // }, []);
-
-  // const updateWindowDimensions = () => {
-  //   // setWindowWidth(window.innerWidth);
-  //   setIsSidebarVisible(window.innerWidth > 768);
-  // };
-
   return (
     <React.Fragment>
       <ThemeProvider theme={theme === 'dark' ? darkthemecolors : themecolor}>
@@ -58,7 +44,7 @@ const LayoutComponents = ({ children }) => {
           {window.innerWidth > 768 && <SidebarLayout theme={theme} />}
           {window.innerWidth <= 767 && isSidebarVisible && <MobileSidebar theme={theme} handleToggleSidebar={handleToggleSidebar}/>}
 
-          <Layout style={{ minHeight: '100vh' }}>
+          <Layout style={{ minHeight: '100vh', display: window.innerWidth <= 767 && isSidebarVisible ? "none" : "block", }}>
             <HeaderLayout darkMode={theme} handleToggleMode={handleToggleMode} handleToggleSidebar={handleToggleSidebar} />
             <StyleLayout id='antLayoutContent' style={{ marginLeft: window.innerWidth > 768 ? `${themecolor.components.Menu.verticalSidebarWidth}px` : 0 }}>
               <Content>

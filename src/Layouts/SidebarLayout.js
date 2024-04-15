@@ -42,7 +42,7 @@ const SidebarLayout = () => {
       null,
       [
         getItem(
-          <Link to="/dashboard">Dashboard</Link>,
+          <Link to="/">Dashboard</Link>,
           "dashboard",
           <DashboardIcon
             color={activatedItem == "dashboard" ? "#ffff" : "#828282"}
@@ -61,7 +61,7 @@ const SidebarLayout = () => {
           />
         ),
         getItem(
-          <Link to="/dashboard">ML/AI</Link>,
+          <Link to="/">ML/AI</Link>,
           "ml",
           <MlAiIcon color={activatedItem == "ml" ? "#ffff" : "#828282"} />
         ),

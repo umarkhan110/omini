@@ -67,7 +67,7 @@ const SuspendUserModal = ({ visible, onCancel }) => {
         </div>
         <Form form={form} layout="vertical">
           <Row gutter={[16, 16]}>
-            <Col span={12}>
+            <Col xs={24} lg={12}>
               <Form.Item
                 name="managerUsername"
                 label="Manager Username"
@@ -78,7 +78,7 @@ const SuspendUserModal = ({ visible, onCancel }) => {
                 <Input />
               </Form.Item>
             </Col>
-            <Col span={12}>
+            <Col xs={24} lg={12}>
               <Form.Item
                 name="managerPassword"
                 label="Manager Password"
@@ -91,7 +91,7 @@ const SuspendUserModal = ({ visible, onCancel }) => {
             </Col>
           </Row>
           <Row gutter={[16, 16]}>
-            <Col span={12}>
+            <Col xs={24} lg={12}>
               <Form.Item
                 name="username"
                 label="Username"
