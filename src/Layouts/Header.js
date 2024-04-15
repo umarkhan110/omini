@@ -20,24 +20,24 @@ const StyleHeader = styled(Header)`
   }
 `;
 
-const HeaderContainer = styled.ul`
-  font-size: 15px;
-  padding-inline: 0;
-  display: flex;
-  gap: 10px;
-  margin: 0;
-  justify-content: end;
+// const HeaderContainer = styled.ul`
+//   font-size: 15px;
+//   padding-inline: 0;
+//   display: flex;
+//   gap: 10px;
+//   margin: 0;
+//   justify-content: end;
 
-  .ant-avatar {
-    background-color: transparent;
-    transition: all 0.5s ease;
-    &:hover {
-      background-color: ${({ theme }) => theme.token.colorBorder};
-    }
-  }
-`;
+//   .ant-avatar {
+//     background-color: transparent;
+//     transition: all 0.5s ease;
+//     &:hover {
+//       background-color: ${({ theme }) => theme.token.colorBorder};
+//     }
+//   }
+// `;
 
-const HeaderLayout = ({ handleToggleSidebar, isSidebarVisible }) => {
+const HeaderLayout = ({ handleToggleSidebar }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -55,10 +55,10 @@ const HeaderLayout = ({ handleToggleSidebar, isSidebarVisible }) => {
 
   return (
     <React.Fragment>
-      <StyleHeader id="antHeaderMain" style={{ left: ` ${isSidebarVisible ? "260px" : "0"}`}}>
+      <StyleHeader id="antHeaderMain" style={{ left:  window.innerWidth > 768 ? "260px" : "0", border: "none"}}>
         <Row align="middle" gutter={[16, 24]}>
-          {windowWidth < 768 && (
-            <Col span={4} lg={1}>
+          {windowWidth <= 768 && (
+            <Col xs={4}>
               <img
                 src={BrandLogo}
                 height={24}
@@ -70,34 +70,12 @@ const HeaderLayout = ({ handleToggleSidebar, isSidebarVisible }) => {
               </Button>
             </Col>
           )}
-          <Col span={5} lg={7}>
+          <Col xs={18} sm={18} md={12} lg={7}>
             <Input
               prefix={<Search size={15} color={"#545454"} />}
               placeholder="Search"
               style={{ borderRadius: "50px" }}
             />
-          </Col>
-          <Col span={6} lg={8} className="ant-ml-auto">
-            <HeaderContainer className="ant-topbar-head list-unstyled">
-              <li>
-                {/* <Popover
-                  placement="bottomRight"
-                  content={profileContentPopover}
-                  // trigger={["click"]}
-                > */}
-                {/* <Badge dot offset={[-3, 5]}>
-                    <Link>
-                      <img
-                        src={profileImages}
-                        alt=""
-                        height={36}
-                        style={{ borderRadius: "50%" }}
-                      ></img>
-                    </Link>
-                  </Badge> */}
-                {/* </Popover> */}
-              </li>
-            </HeaderContainer>
           </Col>
         </Row>
       </StyleHeader>

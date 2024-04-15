@@ -53,5 +53,15 @@ const StyleSider = styled(Sider)`
   background: ${({ theme }) => theme.components.Menu.itemBg};
 `;
 
+// const MobileStyleSider = styled(Sider)`
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   left: 260;
+//   z-index:1000;
+//   border-right: 1px solid ${({ theme }) => theme.components.Menu.menuBorderColor};
+//   background: ${({ theme }) => theme.components.Menu.itemBg};
+// `;
 
-export { StyledCollapsedButton, StyleSimpleBar, StyleBrandLogo, StyleSider };
+
+export { StyledCollapsedButton, StyleSimpleBar, StyleBrandLogo, StyleSider, };

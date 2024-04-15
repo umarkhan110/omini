@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import withRouter from "../Common/withRouter";
 import OmniLogo from "../assets/images/postgresBc.png";
-// import OmniLogo2 from "../assets/images/logo2.png";
 import DashboardIcon from "../Common/Icons/DashboardIcon.js";
 import UsersIcon from "../Common/Icons/UserIcon.js";
 import BlockchainIcon from "../Common/Icons/BlockchainIcon.js";
@@ -11,14 +10,15 @@ import {  FileOutput, } from "lucide-react";
 import {
   StyleSimpleBar,
   StyleBrandLogo,
-  StyleSider,
-  // StyledCollapsedButton
+  StyledCollapsedButton,
+//   MobileStyleSider,
 } from "../Common/SidebarStyle";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-// import { themecolor } from "../config.js";
+import { themecolor } from "../config.js";
 const { Text } = Typography;
 
-const SidebarLayout = () => {
+const MobileSidebar = ({handleToggleSidebar}) => {
+
   function getItem(label, key, icon, children, type) {
     return {
       key,
@@ -72,7 +72,7 @@ const SidebarLayout = () => {
 
   const toggleActivation = (key) => {
     setActivatedItem(key);
-    // handleToggleSidebar(window.innerWidth > 768? true :false)
+    handleToggleSidebar()
   };
 
   const handleUserLogout = ()=>{
@@ -83,15 +83,8 @@ const SidebarLayout = () => {
   
   return (
     <React.Fragment>
-      <StyleSider
-        id="sidebar-layout"
-        width={"260px"}
-        // width={themecolor.components.Menu.verticalSidebarWidth}
-        // collapsed={collapsed}
-        // collapsedWidth="100"
-        // breakpoint="lg"
-        // style={{ padding: collapsed === false ? 10 : 0 }}
-        // collapsed={true} 
+      <div
+        style={{position:"absolute", top:"0", left: "0", zIndex:"999999", width:"100%", height:"100vh", background:"white" }}
       >
         <StyleBrandLogo className="demo-logo ant-mx-auto">
           <img
@@ -108,13 +101,13 @@ const SidebarLayout = () => {
             style={{ lineHeight: "24px" }}
             className="brand-sm-logo ant-mx-auto"
           /> */}
-          {/* <StyledCollapsedButton
+          <StyledCollapsedButton
             themecolor={themecolor}
             type="link"
             onClick={handleToggleSidebar}
           >
             X
-          </StyledCollapsedButton> */}
+          </StyledCollapsedButton>
         </StyleBrandLogo>
         <div>
           <StyleSimpleBar>
@@ -189,9 +182,9 @@ const SidebarLayout = () => {
             </div>
           </StyleSimpleBar>
         </div>
-      </StyleSider>
+      </div>
     </React.Fragment>
   );
 };
 
-export default withRouter(SidebarLayout);
+export default withRouter(MobileSidebar);

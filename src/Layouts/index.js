@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import withRouter from '../Common/withRouter';
 import { ConfigProvider, Layout } from 'antd';
 import HeaderLayout from './Header';
@@ -7,6 +7,7 @@ import SidebarLayout from './SidebarLayout';
 import { ThemeProvider, styled } from 'styled-components';
 import { themecolor, darkthemecolors } from '../../src/config';
 import { useTheme }  from '../Common/ThemeContext';
+import MobileSidebar from './MobileSidebar';
 
 const { Content } = Layout;
 
@@ -26,7 +27,7 @@ const LayoutComponents = ({ children }) => {
 
   const { theme, toggleTheme } = useTheme();
   // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [isSidebarVisible, setIsSidebarVisible] = useState(window.innerWidth > 768);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
   const handleToggleMode = () => {
     toggleTheme();
@@ -36,28 +37,30 @@ const LayoutComponents = ({ children }) => {
     setIsSidebarVisible(prevState => !prevState);
   };
 
-  useEffect(() => {
-    updateWindowDimensions();
-    window.addEventListener("resize", updateWindowDimensions);
+  // useEffect(() => {
+  //   updateWindowDimensions();
+  //   window.addEventListener("resize", updateWindowDimensions);
 
-    return () => {
-      window.removeEventListener("resize", updateWindowDimensions);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("resize", updateWindowDimensions);
+  //   };
+  // }, []);
 
-  const updateWindowDimensions = () => {
-    // setWindowWidth(window.innerWidth);
-    setIsSidebarVisible(window.innerWidth > 768);
-  };
+  // const updateWindowDimensions = () => {
+  //   // setWindowWidth(window.innerWidth);
+  //   setIsSidebarVisible(window.innerWidth > 768);
+  // };
 
   return (
     <React.Fragment>
       <ThemeProvider theme={theme === 'dark' ? darkthemecolors : themecolor}>
         <ConfigProvider theme={theme === 'dark' ? darkthemecolors : themecolor}>
-          {isSidebarVisible && <SidebarLayout theme={theme} handleToggleSidebar={handleToggleSidebar}/>}
+          {window.innerWidth > 768 && <SidebarLayout theme={theme} />}
+          {window.innerWidth <= 767 && isSidebarVisible && <MobileSidebar theme={theme} handleToggleSidebar={handleToggleSidebar}/>}
+
           <Layout style={{ minHeight: '100vh' }}>
-            <HeaderLayout darkMode={theme} handleToggleMode={handleToggleMode} handleToggleSidebar={handleToggleSidebar} isSidebarVisible={isSidebarVisible} />
-            <StyleLayout id='antLayoutContent' style={{ marginLeft: isSidebarVisible ? `${themecolor.components.Menu.verticalSidebarWidth}px` : 0 }}>
+            <HeaderLayout darkMode={theme} handleToggleMode={handleToggleMode} handleToggleSidebar={handleToggleSidebar} />
+            <StyleLayout id='antLayoutContent' style={{ marginLeft: window.innerWidth > 768 ? `${themecolor.components.Menu.verticalSidebarWidth}px` : 0 }}>
               <Content>
                 {children}
               </Content>
